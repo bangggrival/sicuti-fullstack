@@ -46,7 +46,7 @@ router.post('/login', loginLimiter, validate(loginSchema), async (req, res) => {
       sisaCutiMinggu: user.sisa_cuti_minggu
     };
 
-    const token = jwt.sign(payload, process.process?.env?.JWT_SECRET || process.env.JWT_SECRET || 'sicuti_super_secret_jwt_key_2025', {
+    const token = jwt.sign(payload, process.env.JWT_SECRET || 'sicuti_super_secret_jwt_key_2025', {
       expiresIn: '24h' // Access token valid for 24h
     });
 
