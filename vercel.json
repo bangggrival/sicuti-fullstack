@@ -3,10 +3,7 @@
   "builds": [
     {
       "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "use": "@vercel/static-build"
     },
     {
       "src": "backend/server.js",
@@ -17,6 +14,30 @@
     {
       "src": "/api/(.*)",
       "dest": "backend/server.js"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "frontend/assets/$1"
+    },
+    {
+      "src": "/favicon.(.*)",
+      "dest": "frontend/favicon.$1"
+    },
+    {
+      "src": "/logo.png",
+      "dest": "frontend/logo.png"
+    },
+    {
+      "src": "/manifest.webmanifest",
+      "dest": "frontend/manifest.webmanifest"
+    },
+    {
+      "src": "/sw.js",
+      "dest": "frontend/sw.js"
+    },
+    {
+      "src": "/workbox-(.*)",
+      "dest": "frontend/workbox-$1"
     },
     {
       "handle": "filesystem"
